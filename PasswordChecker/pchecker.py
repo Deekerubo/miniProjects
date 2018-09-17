@@ -7,5 +7,4 @@ def PasswordValidity():
      for password in passwords:
          if re.match(regex, password):
              PasswordValidity.append(password)
-        return ','.join(PasswordValidity)
-             
+         return ','.join(PasswordValidity)
