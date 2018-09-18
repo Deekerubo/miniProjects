@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch
 import check_password
 
+
 class ValidPassword(unittest.TestCase):
     def test_valid_password(self):
         user_input = ['Kanini24!','shakes123','nyambumo']
