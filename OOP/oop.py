@@ -1,45 +1,63 @@
-`class StackOverflowUser(object):
+# import hash library
+import hashlib 
+
+# class to handle stackoverflow users
+class User(object):
+
     users = []
 
 
+# user class constructor
     def __init__(self, email, username, password, role='user'):
         self.email = email
-        self.password = password
+        self.password = hash(password)
         self.username = username
         self.role = role
-        self.id = len(StackOverflowUser.users) + 1
+        self.id = len(User.users) + 1
 
+# create a user method
     def _save(self):
         new_user = {'used_id': self.id,
                     'email': self.email,
                     'username': self.username,
                     'password': self.password,
                     'role': self.role}
-        return StackOverflowUser.users.append(new_user)
+        return User.users.append(new_user)
 
+# list all users method
     def get_all_users(self):
-        return StackOverflowUser.users
+        return User.users
 
+# returns username method
+    def get_username(self):
+        username = self.username
+        return username
+
+
+# updates user's username method
     def _update(user):
         pass
 
+# deletes a user
     def _delete(self):
-        return StackOverflowUser.users.pop(1)
+        index = self.id - 1
+        return User.users.pop(index)
 
 '''inherit class attributes'''
-class Admin(StackOverflowUser):
+class Admin(User):
     def __init__(self, email, username, password, role='user'):
-        StackOverflowUser.__init__(
+        User.__init__(
             self, email, username, password, role='Admin')
 
 '''encapsulation'''
-kelvin = StackOverflowUser('kelvin@gmail.com', 'kelvin', 'pass')
+kelvin = User('kelvin@gmail.com', 'kelvin', 'pass')
 kelvin._save()
-diana = StackOverflowUser('dianakerubo24@gmail.com', 'DianaKerubo', '1234taka')
+kelvin._delete()
+diana = User('dianakerubo24@gmail.com', 'DianaKerubo', '1234taka')
 diana._save()
 
 jonathan = Admin('jonathanmusila@gmail.com', 'Jona', 'pass')
 jonathan._save()
+kelvin._delete()
 
-
-print(kelvin.get_all_users())
+print(User.users)
