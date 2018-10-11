@@ -1,4 +1,4 @@
-class StackOverflowUser(object):
+`class StackOverflowUser(object):
     users = []
 
 
